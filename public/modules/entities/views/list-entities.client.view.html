@@ -1,0 +1,14 @@
+<section data-ng-controller="EntitiesController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Entities</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="entity in entities" data-ng-href="#!/entities/{{entity._id}}" class="list-group-item">
+            <small class="list-group-item-text">{{entity.created | date:'medium'}} / {{entity.user.displayName}}</small>
+            <h4 class="list-group-item-heading">{{entity.name}}</h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!entities.$resolved || entities.length">
+    	No Entities yet, why don't you <a href="/#!/entities/create">create one</a>?
+    </div>
+</section>

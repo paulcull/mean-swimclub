@@ -1,0 +1,14 @@
+<section data-ng-controller="MembershipsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Memberships</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="membership in memberships" data-ng-href="#!/memberships/{{membership._id}}" class="list-group-item">
+            <small class="list-group-item-text">{{membership.created | date:'medium'}} / {{membership.user.displayName}}</small>
+            <h4 class="list-group-item-heading">{{membership.name}}</h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!memberships.$resolved || memberships.length">
+    	No Memberships yet, why don't you <a href="/#!/memberships/create">create one</a>?
+    </div>
+</section>

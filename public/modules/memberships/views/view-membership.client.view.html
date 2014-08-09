@@ -1,0 +1,16 @@
+<section data-ng-controller="MembershipsController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1>{{membership.name}}</h1>
+	</div>
+	<div class="pull-right" data-ng-show="authentication.user._id == membership.user._id">
+		<a class="btn btn-primary" href="/#!/memberships/{{membership._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">Posted on {{membership.created | date:'mediumDate'}} by {{membership.user.displayName}}</em>
+	</small>
+</section>
